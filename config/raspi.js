@@ -1,5 +1,6 @@
 export default {
     successLedGpio: 4,
     errorLedGpio: 17,
-    blinkIntervalInMs: 5 * 1000
+    blinkDurationInMs: 100,
+    blinkTotalPeriodInMs: 5000
 };

@@ -1,5 +1,5 @@
 import onoff from 'onoff';
-import config from '../../config';
+import config from '../../config/raspi';
 
 export class LedHandler {
     constructor() {
@@ -7,16 +7,19 @@ export class LedHandler {
         this.errorLed = onoff.Gpio(config.errorLedGpio, 'out');
     }
     blinkForSuccess() {
-        setTimeout(this._blinkLed(this.successLed), config.blinkIntervalInMs)
+        this._blinkLed(this.successLed);
     }
     blinkForError() {
-        setTimeout(this._blinkLed(this.errorLed), config.blinkIntervalInMs)
+        this._blinkLed(this.errorLed);
     }
     _blinkLed(led) {
-        if (led.readSync() === 0) {
-            led.writeSync(1);
-        } else {
+        const interval = setInterval(() => {
+            led.writeSync(led.readSync() === 0 ? 1 : 0)
+        }, config.blinkDurationInMs);
+        setTimeout(() => {
+            clearInterval(interval);
             led.writeSync(0);
-        }
+            led.unexport();
+        }, config.blinkTotalPeriodInMs);
     }
 }
