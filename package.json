@@ -28,6 +28,7 @@
   },
   "main": "index.js",
   "scripts": {
+    "start": "npm run transpile && sudo node dist/index",
     "transpile": "gulp"
   },
   "repository": {
@@ -48,6 +49,7 @@
   },
   "homepage": "https://github.com/mmontes11/iot_raspi#readme",
   "dependencies": {
-    "iot_client": "file:./lib/iot_client"
+    "iot_client": "file:./lib/iot_client",
+    "onoff": "^1.1.7"
   }
 }
