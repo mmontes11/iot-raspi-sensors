@@ -7,7 +7,7 @@ import runSequence from 'run-sequence';
 const plugins = gulpLoadPlugins();
 
 const paths = {
-    js: ['./**/*.js', '!dist/**', '!node_modules/**'],
+    js: ['./**/*.js', '!dist/**', '!node_modules/**', "!lib/iot_client/**"],
     nonJs: ['./package.json']
 };
 
