@@ -8,22 +8,6 @@
     "node": ">=8.0.0",
     "npm": ">=5.0.0"
   },
-  "devDependencies": {
-    "babel-cli": "6.18.0",
-    "babel-core": "6.18.0",
-    "babel-plugin-add-module-exports": "0.2.1",
-    "babel-plugin-transform-runtime": "^6.23.0",
-    "babel-preset-env": "^1.6.0",
-    "del": "^2.2.0",
-    "gulp": "3.9.1",
-    "gulp-babel": "6.1.2",
-    "gulp-load-plugins": "^1.2.0",
-    "gulp-newer": "^1.1.0",
-    "gulp-nodemon": "^2.0.6",
-    "gulp-sourcemaps": "^1.6.0",
-    "gulp-util": "^3.0.7",
-    "run-sequence": "^1.1.5"
-  },
   "main": "index.js",
   "scripts": {
     "start": "npm run transpile && node dist/index",
@@ -49,7 +33,18 @@
   },
   "homepage": "https://github.com/mmontes11/iot_raspi#readme",
   "dependencies": {
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.6.0",
+    "del": "^2.2.0",
+    "gulp": "3.9.1",
+    "gulp-babel": "6.1.2",
+    "gulp-load-plugins": "^1.2.0",
+    "gulp-newer": "^1.1.0",
+    "gulp-nodemon": "^2.0.6",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-util": "^3.0.7",
     "iot_client": "file:./lib/iot_client",
-    "onoff": "^1.1.7"
+    "onoff": "^1.1.7",
+    "run-sequence": "^1.1.5"
   }
 }
