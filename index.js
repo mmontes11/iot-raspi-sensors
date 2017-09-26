@@ -1,11 +1,10 @@
-import { LEDHandler } from './src/gpio/ledHandler';
-import { DHTHandler } from './src/gpio/dhtHandler';
+import { LEDHandler } from './src/handlers/ledHandler';
+import { DHTHandler } from './src/handlers/dhtHandler';
 
-const ledHandler = new LEDHandler();
 if (Math.random() >= 0.5) {
-	ledHandler.blinkForSuccess();
+    LEDHandler.blinkForSuccess();
 } else {
-	ledHandler.blinkForError();
+    LEDHandler.blinkForError();
 }
 
 DHTHandler.read();
