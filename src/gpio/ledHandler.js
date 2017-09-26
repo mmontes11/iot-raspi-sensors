@@ -1,7 +1,7 @@
 import onoff from 'onoff';
 import config from '../../config/raspi';
 
-export class LedHandler {
+export class LEDHandler {
     constructor() {
         this.successLed = onoff.Gpio(config.successLedGpio, 'out');
         this.errorLed = onoff.Gpio(config.errorLedGpio, 'out');

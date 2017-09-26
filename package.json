@@ -44,7 +44,9 @@
     "gulp-sourcemaps": "^1.6.0",
     "gulp-util": "^3.0.7",
     "iot_client": "file:./lib/iot_client",
+    "node-dht-sensor": "0.0.32",
     "onoff": "^1.1.7",
-    "run-sequence": "^1.1.5"
+    "run-sequence": "^1.1.5",
+    "underscore": "^1.8.3"
   }
 }
