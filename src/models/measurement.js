@@ -5,7 +5,7 @@ class Measurement {
         this.unit = unit;
     }
     toString() {
-        return `${this.type}: ${this.value} ${this.unit.symbol}`;
+        return `${this.type} ${this.value}${this.unit.symbol}`;
     }
 }
 

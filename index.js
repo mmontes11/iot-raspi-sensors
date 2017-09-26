@@ -1,5 +1,5 @@
 import { LEDHandler } from './src/gpio/ledHandler';
-import { DHTHandler } from "./src/gpio/dhtHandler"
+import { DHTHandler } from './src/gpio/dhtHandler';
 
 const ledHandler = new LEDHandler();
 if (Math.random() >= 0.5) {
@@ -8,5 +8,4 @@ if (Math.random() >= 0.5) {
 	ledHandler.blinkForError();
 }
 
-const dhtHandler = new DHTHandler();
-dhtHandler.read();
+DHTHandler.read();

@@ -12,5 +12,6 @@ export default {
     dhtSensors: [
         dhtOutdoorSensor,
         dhtIndoorSensor
-    ]
+    ],
+    debug: true
 };

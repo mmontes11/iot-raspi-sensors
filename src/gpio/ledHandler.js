@@ -1,5 +1,6 @@
 import onoff from 'onoff';
 import config from '../../config/raspi';
+import { Log } from "../util/log";
 
 export class LEDHandler {
     constructor() {
@@ -7,9 +8,11 @@ export class LEDHandler {
         this.errorLed = onoff.Gpio(config.errorLedGpio, 'out');
     }
     blinkForSuccess() {
+        Log.logInfo('LED blinking for success');
         this._blinkLed(this.successLed);
     }
     blinkForError() {
+        Log.logInfo('LED blinking for error');
         this._blinkLed(this.errorLed);
     }
     _blinkLed(led) {
