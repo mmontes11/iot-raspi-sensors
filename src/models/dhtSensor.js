@@ -1,3 +1,5 @@
+import dhtSensor from  'node-dht-sensor';
+
 export class DHTSensor {
     constructor(dhtType, gpio, temperatureUnits, humidityUnits, measurementLocation) {
         this.dhtType = dhtType;
@@ -8,5 +10,8 @@ export class DHTSensor {
     }
     toString() {
         return `DHT${this.dhtType}_${this.measurementLocation} @ GPIO${this.gpio}`
+    }
+    read(readFunction) {
+        dhtSensor.read(this.dhtType, this.gpio, readFunction)
     }
 }
