@@ -14,8 +14,9 @@ export class DHTHandler {
                     console.log(`Error reading from ${sensor.name}`);
                     console.log(err);
                 } else {
-                    const temperatureMeasurement = new TemperatureMeasurement(temperatureValue, sensor.temperatureUnits);
-                    const humidityMeasurement = new HumidityMeasurement(humidityValue, sensor.humidityUnits);
+                    const temperatureMeasurement = new TemperatureMeasurement(temperatureValue, sensor.temperatureUnits, sensor.measurementLocation);
+                    const humidityMeasurement = new HumidityMeasurement(humidityValue, sensor.humidityUnits, sensor.measurementLocation);
+                    console.log(`Reading from ${sensor.name} ...`);
                     console.log(temperatureMeasurement.toString());
                     console.log(humidityMeasurement.toString());
                     measurements = [ ...measurements, temperatureMeasurement, humidityMeasurement ];

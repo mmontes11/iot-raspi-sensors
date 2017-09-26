@@ -1,11 +1,8 @@
 class Measurement {
     constructor(type, value, unit, location) {
-        this.type = type;
+        this.type = `${type}_${location}`;
         this.value = value;
         this.unit = unit;
-    }
-    _getType(type, location) {
-
     }
     toString() {
         return `${this.type}: ${this.value} ${this.unit.symbol}`;
@@ -13,14 +10,14 @@ class Measurement {
 }
 
 class TemperatureMeasurement extends Measurement {
-    constructor(value, unit) {
-        super(MeasurementType.temperature, value, unit);
+    constructor(value, unit, location) {
+        super(MeasurementType.temperature, value, unit, location);
     }
 }
 
 class HumidityMeasurement extends Measurement {
-    constructor(value, unit) {
-        super(MeasurementType.humidity, value, unit);
+    constructor(value, unit, location) {
+        super(MeasurementType.humidity, value, unit, location);
     }
 }
 
