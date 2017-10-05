@@ -1,5 +1,6 @@
 class Measurement {
     constructor(type, value, unit, location) {
+        this.kind = 'measurement';
         this.type = `${type}_${location}`;
         this.value = value;
         this.unit = unit;
