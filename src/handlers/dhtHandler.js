@@ -3,23 +3,23 @@ import { TemperatureMeasurement, HumidityMeasurement } from '../models/measureme
 import { Log } from '../util/log';
 
 export class DHTHandler {
-    static read() {
-        let measurements = [];
-        for (const sensor of config.dhtSensors) {
-            sensor.read((err, temperatureValue, humidityValue) => {
-                if (err) {
-                    Log.logError(`Error reading from ${sensor}`);
-                    Log.logError(err);
-                } else {
-                    const temperatureMeasurement = new TemperatureMeasurement(temperatureValue, sensor.temperatureUnits, sensor.measurementLocation);
-                    const humidityMeasurement = new HumidityMeasurement(humidityValue, sensor.humidityUnits, sensor.measurementLocation);
-                    Log.logInfo(`Reading from ${sensor} ...`);
-                    Log.logInfo(`${temperatureMeasurement}`);
-                    Log.logInfo(`${humidityMeasurement}`);
-                    measurements = [ ...measurements, temperatureMeasurement, humidityMeasurement ];
-                }
-            });
+    static async read() {
+        try {
+            let measurements = [];
+            const sensors = await config.getSensors();
+            for (const sensor of sensors) {
+                const { temperatureValue, humidityValue } = await sensor.read();
+                const temperatureMeasurement = new TemperatureMeasurement(temperatureValue, sensor.temperatureUnits, sensor.measurementLocation, sensor.relatedEntities);
+                const humidityMeasurement = new HumidityMeasurement(humidityValue, sensor.humidityUnits, sensor.measurementLocation, sensor.relatedEntities);
+                Log.logInfo(`Reading from ${sensor} ...`);
+                Log.logInfo(`${temperatureMeasurement}`);
+                Log.logInfo(`${humidityMeasurement}`);
+                measurements.push(temperatureMeasurement);
+                measurements.push(humidityMeasurement);
+            }
+            return measurements;
+        } catch (err) {
+            throw err;
         }
-        return measurements;
     }
 }
