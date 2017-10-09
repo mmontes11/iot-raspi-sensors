@@ -1,3 +1,4 @@
+import Promise from 'bluebird';
 import dhtSensorLib from  'node-dht-sensor';
 
 export class DHTSensor {
