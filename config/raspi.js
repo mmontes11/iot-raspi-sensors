@@ -5,8 +5,8 @@ import { Point } from "../src/models/geometry"
 import { RelatedEntity, RelatedEntityType } from "../src/models/relatedEntity"
 
 const relatedEntityName = "Martin's flat";
-const successLed = new LED(4, 100, 5000);
-const errorLed = new LED(17, 100, 5000);
+const successLed = new LED(20, 100, 5000);
+const errorLed = new LED(21, 100, 5000);
 const serverHost = 'http://mmontes-asus:8000';
 const username = 'admin';
 const password = 'aA12345678&';
