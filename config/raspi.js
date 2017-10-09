@@ -7,6 +7,10 @@ import { RelatedEntity, RelatedEntityType } from "../src/models/relatedEntity"
 const relatedEntityName = "Martin's flat";
 const successLed = new LED(4, 100, 5000);
 const errorLed = new LED(17, 100, 5000);
+const serverHost = 'http://mmontes-asus:8000';
+const username = 'admin';
+const password = 'aA12345678&';
+const debug = true;
 
 const getSensors = async () => {
     try {
@@ -27,5 +31,8 @@ export default {
     successLed,
     errorLed,
     getSensors,
-    debug: true
-}
+    serverHost,
+    username,
+    password,
+    debug
+};
