@@ -10,10 +10,9 @@
   },
   "main": "index.js",
   "scripts": {
-    "start": "npm run transpile && node dist/index",
-    "transpile": "gulp",
-    "transpile-client": "cd lib/iot_client && npm run transpile && cd -",
-    "production": "npm run transpile-client && npm start"
+    "start": "gulp && node dist/index",
+    "transpile": "npm run transpile-client && gulp",
+    "transpile-client": "cd lib/iot_client && npm run transpile && cd -"
   },
   "repository": {
     "type": "git",
