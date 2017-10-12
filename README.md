@@ -2,7 +2,7 @@
 IoT container for Raspberry Pi that uses [IoT client](https://github.com/mmontes11/iot_client)
 
 ### Prerequisites
-Install [Docker Engine](https://docs.docker.com/engine/installation/)
+Install [Docker](https://docs.docker.com/engine/installation/)
 
 ### Installing
 ```bash
