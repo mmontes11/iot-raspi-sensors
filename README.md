@@ -9,5 +9,5 @@ Install [Docker](https://docs.docker.com/engine/installation/)
 $ git clone https://github.com/mmontes11/iot_raspi.git --recursive
 $ cd iot_raspi
 $ docker build -t iot_raspi .
-$ docker run --name iot_raspi --privileged -d iot_raspi 
+$ docker run --name iot_raspi --privileged --restart always -h <hostname> -d iot_raspi 
 ```
