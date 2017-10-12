@@ -1,23 +1,27 @@
 FROM node:8
 
+RUN apt-get update
+
+RUN apt-get install -y cron rsyslog
+
 ENV WORKDIR /usr/src/iot_raspi
 
-ENV IOT_CLIENT_PATH lib/iot_client
-ENV IOT_CLIENT_WORKDIR ${WORKDIR}/${IOT_CLIENT_PATH}
-ENV IOT_BACKEND_PATH lib/iot_client/test/iot_backend
-ENV IOT_BACKEND_WORKDIR ${WORKDIR}/${IOT_BACKEND_PATH}
-
-RUN mkdir ${WORKDIR} && mkdir -p ${IOT_BACKEND_WORKDIR}
+RUN mkdir ${WORKDIR}
 
 WORKDIR ${WORKDIR}
 
-COPY install_bcm.sh ${WORKDIR}
-RUN chmod +x ${WORKDIR}/install_bcm.sh
+COPY . ${WORKDIR}
 
-COPY package.json ${WORKDIR}
-COPY ${IOT_CLIENT_PATH}/package.json ${IOT_CLIENT_WORKDIR}
-COPY ${IOT_BACKEND_PATH}/package.json ${IOT_BACKEND_WORKDIR}
+RUN chmod +x ${WORKDIR}/config/install_bcm.sh
 
-RUN ${WORKDIR}/install_bcm.sh
+RUN ${WORKDIR}/config/install_bcm.sh
 
 RUN npm install
+
+RUN npm run transpile-client && npm run transpile
+
+RUN crontab ${WORKDIR}/config/crontab
+
+RUN chmod +x ${WORKDIR}/config/start_cron.sh
+
+CMD ${WORKDIR}/config/start_cron.sh
