@@ -1,25 +1,23 @@
-FROM node:8
+FROM node:6
 
 ENV WORKDIR /usr/src/iot_raspi
 
-RUN mkdir ${WORKDIR}
+ENV IOT_CLIENT_PATH lib/iot_client
+ENV IOT_CLIENT_WORKDIR ${WORKDIR}/${IOT_CLIENT_PATH}
+ENV IOT_BACKEND_PATH lib/iot_client/test/iot_backend
+ENV IOT_BACKEND_WORKDIR ${WORKDIR}/${IOT_BACKEND_PATH}
+
+RUN mkdir ${WORKDIR} && mkdir -p ${IOT_BACKEND_WORKDIR}
 
 WORKDIR ${WORKDIR}
 
-ENV BCM bcm2835-1.52
-
-RUN wget http://www.airspayce.com/mikem/bcm2835/${BCM}.tar.gz
-
-WORKDIR ${BCM}
-
-RUN ./configure && make
-
-RUN make check && make install
-
-WORKDIR ${WORKDIR}
+COPY install_bcm.sh ${WORKDIR}
+RUN chmod +x ${WORKDIR}/install_bcm.sh
 
 COPY package.json ${WORKDIR}
+COPY ${IOT_CLIENT_PATH}/package.json ${IOT_CLIENT_WORKDIR}
+COPY ${IOT_BACKEND_PATH}/package.json ${IOT_BACKEND_WORKDIR}
 
-RUN npm install && npm run transpile
+RUN ${WORKDIR}/install_bcm.sh
 
-COPY . ${WORKDIR}
+RUN npm install
