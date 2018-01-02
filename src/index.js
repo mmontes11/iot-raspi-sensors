@@ -1,8 +1,8 @@
 import { LEDHandler } from './handlers/ledHandler';
 import { DHTHandler } from './handlers/dhtHandler';
-import { ObservationFactory } from "./models/observationFactory"
-import IoTClient from "@mmontes11/iot_client";
+import { ObservationFactory } from "./models/observationFactory";
 import { Log } from "./util/log"
+import IoTClient from "@mmontes11/iot_client";
 import config from './config/raspi';
 
 const iotClient = new IoTClient({

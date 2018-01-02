@@ -1,13 +1,8 @@
-import publicIp from 'public-ip';
-import geopIp from 'geoip-lite';
+import config from '../../config/raspi';
 
 export class LocationHandler {
-    static async getCurrentLocation() {
-        try {
-            const ip = await publicIp.v4();
-            return geopIp.lookup(ip);
-        } catch (err) {
-            throw err;
-        }
+    static getCurrentLocation() {
+        //TODO: Use a GPS sensor to obtain location. This one looks good: https://www.adafruit.com/product/746
+        return config.location;
     }
 }

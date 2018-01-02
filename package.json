@@ -37,7 +37,6 @@
     "@mmontes11/iot_client": "^1.0.1",
     "babel-plugin-transform-runtime": "^6.23.0",
     "bluebird": "^3.5.1",
-    "geoip-lite": "^1.2.1",
     "node-dht-sensor": "0.0.32",
     "onoff": "^1.1.7",
     "public-ip": "^2.3.5",

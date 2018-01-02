@@ -7,6 +7,10 @@ const errorLed = new LED(21, 100, 5000);
 const serverHost = 'http://192.168.0.100:8000';
 const username = 'admin';
 const password = 'aA12345678&';
+const location = {
+    longitude: -8.40,
+    latitude: 43.40
+};
 const debug = true;
 
 const getSensors = async () => {
@@ -29,5 +33,6 @@ export default {
     serverHost,
     username,
     password,
+    location,
     debug
 };
