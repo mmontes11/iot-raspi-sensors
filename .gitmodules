@@ -1,3 +1,0 @@
-[submodule "src/lib/iot_client"]
-	path = src/lib/iot_client
-	url = https://github.com/mmontes11/iot_client.git

@@ -10,13 +10,12 @@
   },
   "main": "index.js",
   "scripts": {
-    "start": "cross-env NODE_ENV=development babel-node src/index",
-    "dist-client": "cd src/lib/iot_client && npm run dist && cd - && cp -R src/lib/iot_client/dist/ dist/lib/",
+    "start": "babel-node src/index",
     "clean": "rm -rf dist/*",
     "prebuild": "npm run clean",
     "build": "babel -d dist/ src/",
-    "dist": "npm run build && cp package.json dist/ && cd dist && npm install --production && cd - && npm run dist-client",
-    "production": "cross-env NODE_ENV=production node dist/index"
+    "dist": "npm run build && cp package.json dist/ && cd dist && npm install --production && cd -",
+    "production": "node dist/index"
   },
   "repository": {
     "type": "git",
@@ -36,9 +35,10 @@
   },
   "homepage": "https://github.com/mmontes11/iot_raspi#readme",
   "dependencies": {
+    "@mmontes11/iot_client": "^1.0.1",
     "babel-plugin-transform-runtime": "^6.23.0",
-    "cross-env": "^5.1.3",
-    "iot_client": "file:./src/lib/iot_client",
+    "bluebird": "^3.5.1",
+    "geoip-lite": "^1.2.1",
     "node-dht-sensor": "0.0.32",
     "onoff": "^1.1.7",
     "public-ip": "^2.3.5",
@@ -46,6 +46,9 @@
     "winston": "^2.3.1"
   },
   "devDependencies": {
-    "babel-preset-env": "^1.6.0"
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.0",
+    "babel-register": "^6.26.0"
   }
 }

@@ -7,7 +7,7 @@ import { RelatedEntity, RelatedEntityType } from "../models/relatedEntity"
 const relatedEntityName = "Martin's flat";
 const successLed = new LED(20, 100, 5000);
 const errorLed = new LED(21, 100, 5000);
-const serverHost = 'http://192.168.0.110:8000';
+const serverHost = 'http://192.168.0.100:8000';
 const username = 'admin';
 const password = 'aA12345678&';
 const debug = true;
