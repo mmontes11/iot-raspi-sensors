@@ -1,15 +1,11 @@
-import { LEDHandler } from './src/handlers/ledHandler';
-import { DHTHandler } from './src/handlers/dhtHandler';
-import { ObservationFactory } from "./src/models/observationFactory"
+import { LEDHandler } from './handlers/ledHandler';
+import { DHTHandler } from './handlers/dhtHandler';
+import { ObservationFactory } from "./models/observationFactory"
 import config from './config/raspi';
-import IoTClient from "./lib/iot_client/index";
-import { Log } from "./src/util/log"
+import IoTClientManager from "./lib/iotClientManager";
+import { Log } from "./util/log"
 
-const iotClient = new IoTClient({
-    host: config.serverHost,
-    username: config.username,
-    password: config.password
-});
+const iotClient = IoTClientManager.create(config.serverHost, config.username, config.password);
 
 (async () => {
     try {

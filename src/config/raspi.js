@@ -1,8 +1,8 @@
-import { MeasurementUnit, MeasurementLocation } from "../src/models/measurement";
-import { LED } from "../src/models/led";
-import { DHTSensor } from "../src/models/dhtSensor";
-import { Point } from "../src/models/geometry"
-import { RelatedEntity, RelatedEntityType } from "../src/models/relatedEntity"
+import { MeasurementUnit, MeasurementLocation } from "../models/measurement";
+import { LED } from "../models/led";
+import { DHTSensor } from "../models/dhtSensor";
+import { Point } from "../models/geometry"
+import { RelatedEntity, RelatedEntityType } from "../models/relatedEntity"
 
 const relatedEntityName = "Martin's flat";
 const successLed = new LED(20, 100, 5000);

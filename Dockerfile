@@ -6,22 +6,20 @@ RUN apt-get install -y cron rsyslog
 
 ENV WORKDIR /usr/src/iot_raspi
 
+ENV SCRIPTSDIR ${WORKDIR}/scripts
+
 RUN mkdir ${WORKDIR}
 
 WORKDIR ${WORKDIR}
 
-COPY . ${WORKDIR}
+ADD dist/ ${WORKDIR}
 
-RUN chmod +x ${WORKDIR}/config/install_bcm.sh
+COPY scripts ${WORKDIR}
 
-RUN ${WORKDIR}/config/install_bcm.sh
+RUN chmod +x ${SCRIPTSDIR}/*.sh
 
-RUN npm install
+RUN ${SCRIPTSDIR}/install_bcm.sh
 
-RUN npm run transpile-client && npm run transpile
+RUN crontab ${SCRIPTSDIR}/crontab
 
-RUN crontab ${WORKDIR}/config/crontab
-
-RUN chmod +x ${WORKDIR}/config/start_cron.sh
-
-CMD ${WORKDIR}/config/start_cron.sh
+CMD ${SCRIPTSDIR}/start_cron.sh

@@ -1,5 +1,5 @@
 import Promise from 'bluebird';
-import config from '../../config/raspi';
+import config from '../config/raspi';
 import { TemperatureMeasurement, HumidityMeasurement } from '../models/measurement';
 import { Log } from '../util/log';
 
