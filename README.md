@@ -1,5 +1,5 @@
 # iot_raspi
-IoT container for Raspberry Pi used to measure temperature and humidity periodically. It consumes [IoT backend](https://github.com/mmontes11/iot_backend) API via [IoT client](https://github.com/mmontes11/iot_client).
+IoT container for Raspberry Pi used to measure temperature and humidity periodically. To store that data, it consumes [IoT backend](https://github.com/mmontes11/iot_backend) REST API using [IoT client](https://github.com/mmontes11/iot_client).
 
 ### Run in development
 
