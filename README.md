@@ -9,8 +9,8 @@ $ npm start
 ```
 ### Build image
 First, configure your image:
-* [raspi config file](https://github.com/mmontes11/iot_raspi/blob/develop/src/config/raspi.js)
-* [crontab file](https://github.com/mmontes11/iot_raspi/blob/develop/scripts/crontab)
+* [raspi](https://github.com/mmontes11/iot_raspi/blob/develop/src/config/raspi.js)
+* [crontab](https://github.com/mmontes11/iot_raspi/blob/develop/scripts/crontab)
 
 After that, run the commands below:
 ```bash
