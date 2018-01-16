@@ -14,7 +14,7 @@
     "clean": "rm -rf dist/*",
     "prebuild": "npm run clean",
     "build": "babel -d dist/ src/",
-    "dist": "npm run build && cp package.json dist/ && cd dist && npm install --production && cd -",
+    "dist": "npm run build && cp -R package.json scripts/ dist/ && cd dist && npm install --production && cd -",
     "production": "node dist/index"
   },
   "repository": {
