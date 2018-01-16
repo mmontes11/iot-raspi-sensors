@@ -8,7 +8,7 @@ $ npm install
 $ npm start
 ```
 ### Build image
-Before building your image, you may first set up your [raspi config file](https://github.com/mmontes11/iot_raspi/blob/develop/src/config/raspi.js). After that, run the commads below:
+Before building your image, you may first set up your [raspi config file](https://github.com/mmontes11/iot_raspi/blob/develop/src/config/raspi.js). After that, run the commands below:
 ```bash
 $ npm run dist
 $ docker build -t iot_raspi .
