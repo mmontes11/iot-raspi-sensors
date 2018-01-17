@@ -1,4 +1,20 @@
-import os from 'os';
+import _ from 'underscore';
+
+class MeasurementList {
+    constructor(measurements) {
+        this.measurements = measurements;
+    }
+    toJSON() {
+        return _.map(this.measurements, (measurement) => {
+            return measurement.toJSON()
+        });
+    }
+    measurementTypes() {
+        return _.map(this.measurements, (measurement) => {
+            return measurement.type
+        });
+    }
+}
 
 class Measurement {
     constructor(type, value, unit, measurementLocation) {
@@ -15,8 +31,7 @@ class Measurement {
             kind: this.kind,
             type: this.type,
             value: this.value,
-            unit: this.unit,
-            device: os.hostname(),
+            unit: this.unit
         }
     }
 }
@@ -54,4 +69,4 @@ const MeasurementLocation = Object.freeze({
     outdoor: 'outdoor'
 });
 
-export { Measurement, TemperatureMeasurement, HumidityMeasurement, MeasurementType, MeasurementUnit, MeasurementLocation };
+export { MeasurementList, Measurement, TemperatureMeasurement, HumidityMeasurement, MeasurementType, MeasurementUnit, MeasurementLocation };

@@ -1,17 +1,16 @@
 import Promise from 'bluebird';
 import config from '../config/raspi';
-import { TemperatureMeasurement, HumidityMeasurement } from '../models/measurement';
+import { MeasurementList, TemperatureMeasurement, HumidityMeasurement } from '../models/measurement';
 import { Log } from '../util/log';
 
 export class DHTHandler {
     static async read() {
         try {
-            const sensors = await config.getSensors();
-            const readPromises = sensors.map((sensor) => {
+            const readFromSensorPromises = config.sensors.map((sensor) => {
                 return sensor.read().reflect();
             });
             let measurements = [];
-            await Promise.all(readPromises)
+            await Promise.all(readFromSensorPromises)
                 .each((inspection, index) => {
                     const sensor = sensors[index];
                     if (inspection.isFulfilled()) {
@@ -27,7 +26,7 @@ export class DHTHandler {
                         Log.logError(`Error reading from ${sensor}: ${inspection.reason()}`)
                     }
                 });
-            return measurements;
+            return new MeasurementList(measurements);
         } catch (err) {
             throw err;
         }
