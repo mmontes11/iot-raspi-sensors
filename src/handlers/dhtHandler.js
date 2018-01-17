@@ -1,4 +1,5 @@
 import Promise from 'bluebird';
+import _ from 'underscore';
 import config from '../config/raspi';
 import { MeasurementList, TemperatureMeasurement, HumidityMeasurement } from '../models/measurement';
 import { Log } from '../util/log';
@@ -6,13 +7,13 @@ import { Log } from '../util/log';
 export class DHTHandler {
     static async read() {
         try {
-            const readFromSensorPromises = config.sensors.map((sensor) => {
+            const readFromSensorPromises = _.map(config.sensors, (sensor) => {
                 return sensor.read().reflect();
             });
             let measurements = [];
             await Promise.all(readFromSensorPromises)
                 .each((inspection, index) => {
-                    const sensor = sensors[index];
+                    const sensor = config.sensors[index];
                     if (inspection.isFulfilled()) {
                         const { temperatureValue, humidityValue } = inspection.value();
                         const temperatureMeasurement = new TemperatureMeasurement(temperatureValue, sensor.temperatureUnits, sensor.measurementLocation);

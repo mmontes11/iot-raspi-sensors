@@ -1,7 +1,7 @@
 import os from 'os';
 import { LocationHandler } from '../handlers/locationHandler';
 
-class Thing {
+export class Thing {
     constructor(supportedObservationTypes) {
         this.supportedObservationTypes = supportedObservationTypes;
         this.name = os.hostname();
