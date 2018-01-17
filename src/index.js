@@ -15,8 +15,8 @@ const iotClient = new IoTClient({
     try {
         const measurementList = await DHTHandler.read();
         const supportedObservationTypes = {
-            observations: measurementList.measurementTypes(),
-            events: []
+            measurement: measurementList.measurementTypes(),
+            event: []
         };
         const thing = new Thing(supportedObservationTypes);
         await iotClient.observationsService.create({
