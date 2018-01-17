@@ -16,8 +16,8 @@ export class DHTHandler {
                     const sensor = sensors[index];
                     if (inspection.isFulfilled()) {
                         const { temperatureValue, humidityValue } = inspection.value();
-                        const temperatureMeasurement = new TemperatureMeasurement(temperatureValue, sensor.temperatureUnits, sensor.measurementLocation, sensor.relatedEntities);
-                        const humidityMeasurement = new HumidityMeasurement(humidityValue, sensor.humidityUnits, sensor.measurementLocation, sensor.relatedEntities);
+                        const temperatureMeasurement = new TemperatureMeasurement(temperatureValue, sensor.temperatureUnits, sensor.measurementLocation);
+                        const humidityMeasurement = new HumidityMeasurement(humidityValue, sensor.humidityUnits, sensor.measurementLocation);
                         Log.logInfo(`Reading from ${sensor} ...`);
                         Log.logInfo(`${temperatureMeasurement}`);
                         Log.logInfo(`${humidityMeasurement}`);

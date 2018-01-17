@@ -1,40 +1,35 @@
 import os from 'os';
 
 class Measurement {
-    constructor(type, value, unit, location, relatedEntities) {
+    constructor(type, value, unit, measurementLocation) {
         this.kind = 'measurement';
-        this.type = `${type}_${location}`;
+        this.type = `${type}_${measurementLocation}`;
         this.value = value;
         this.unit = unit;
-        this.relatedEntities = relatedEntities;
     }
     toString() {
         return `${this.type} ${this.value}${this.unit.symbol}`;
     }
     toJSON() {
-        const relatedEntities = this.relatedEntities.map((relatedEntity) => {
-            return relatedEntity.toJSON()
-        });
         return {
             kind: this.kind,
             type: this.type,
             value: this.value,
             unit: this.unit,
             device: os.hostname(),
-            relatedEntities: relatedEntities
         }
     }
 }
 
 class TemperatureMeasurement extends Measurement {
-    constructor(value, unit, location, relatedEntities) {
-        super(MeasurementType.temperature, value, unit, location, relatedEntities);
+    constructor(value, unit, measurementLocation) {
+        super(MeasurementType.temperature, value, unit, measurementLocation);
     }
 }
 
 class HumidityMeasurement extends Measurement {
-    constructor(value, unit, location, relatedEntities) {
-        super(MeasurementType.humidity, value, unit, location, relatedEntities);
+    constructor(value, unit, measurementLocation) {
+        super(MeasurementType.humidity, value, unit, measurementLocation);
     }
 }
 

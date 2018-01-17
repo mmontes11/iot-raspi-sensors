@@ -2,16 +2,12 @@ import Promise from 'bluebird';
 import dhtSensorLib from  'node-dht-sensor';
 
 export class DHTSensor {
-    constructor(dhtType, gpio, temperatureUnits, humidityUnits, measurementLocation, relatedEntities) {
+    constructor(dhtType, gpio, temperatureUnits, humidityUnits, measurementLocation) {
         this.dhtType = dhtType;
         this.gpio = gpio;
         this.temperatureUnits = temperatureUnits;
         this.humidityUnits = humidityUnits;
         this.measurementLocation = measurementLocation;
-        this.relatedEntities = relatedEntities;
-    }
-    setRelatedEntities(relatedEntities) {
-        this.relatedEntities = relatedEntities
     }
     toString() {
         return `DHT${this.dhtType}_${this.measurementLocation} @ GPIO${this.gpio}`
