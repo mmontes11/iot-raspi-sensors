@@ -6,8 +6,8 @@ export class LocationHandler {
         return {
             type: "Point",
             coordinates: [
-                config.location.latitude,
-                config.location.longitude
+                config.location.longitude,
+                config.location.latitude
             ]
         };
     }
