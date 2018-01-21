@@ -2,7 +2,7 @@
   "name": "iot-raspi",
   "version": "1.0.0",
   "description": "IoT container for Raspberry Pi that uses IoT client",
-  "license": "UNLICENSED",
+  "license": "MIT",
   "private": false,
   "engines": {
     "node": ">=8.0.0",
