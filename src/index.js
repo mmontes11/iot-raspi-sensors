@@ -2,7 +2,7 @@ import { LEDHandler } from './handlers/ledHandler';
 import { DHTHandler } from './handlers/dhtHandler';
 import { Thing } from './models/thing';
 import { Log } from "./util/log"
-import IoTClient from "@mmontes11/iot_client";
+import IoTClient from "@mmontes11/iot-client";
 import config from './config/raspi';
 
 const iotClient = new IoTClient({
