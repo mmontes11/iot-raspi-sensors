@@ -1,5 +1,5 @@
 {
-  "name": "iot_raspi",
+  "name": "iot-raspi",
   "version": "1.0.0",
   "description": "IoT container for Raspberry Pi that uses IoT client",
   "license": "UNLICENSED",
@@ -18,7 +18,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/mmontes11/iot_raspi"
+    "url": "https://github.com/mmontes11/iot-raspi"
   },
   "keywords": [
     "js",
@@ -30,11 +30,11 @@
   ],
   "author": "Martín Montes <martin11lrx@gmail.com>",
   "bugs": {
-    "url": "https://github.com/mmontes11/iot_raspi/issues"
+    "url": "https://github.com/mmontes11/iot-raspi/issues"
   },
-  "homepage": "https://github.com/mmontes11/iot_raspi#readme",
+  "homepage": "https://github.com/mmontes11/iot-raspi#readme",
   "dependencies": {
-    "@mmontes11/iot_client": "^1.0.2",
+    "@mmontes11/iot-client": "^1.0.2",
     "babel-plugin-transform-runtime": "^6.23.0",
     "bluebird": "^3.5.1",
     "node-dht-sensor": "0.0.32",

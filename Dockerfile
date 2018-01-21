@@ -4,7 +4,7 @@ RUN apt-get update
 
 RUN apt-get install -y cron rsyslog
 
-ENV WORKDIR /usr/src/iot_raspi
+ENV WORKDIR /usr/src/iot-raspi
 
 ENV SCRIPTSDIR ${WORKDIR}/scripts
 
