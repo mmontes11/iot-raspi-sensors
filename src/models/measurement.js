@@ -19,7 +19,7 @@ class MeasurementList {
 class Measurement {
     constructor(type, value, unit, measurementLocation) {
         this.kind = 'measurement';
-        this.type = `${type}_${measurementLocation}`;
+        this.type = `${type}-${measurementLocation}`;
         this.value = value;
         this.unit = unit;
     }
