@@ -8,7 +8,6 @@ Check wiring info at [raspi](https://github.com/mmontes11/iot-raspi/blob/develop
 ### Run in development
 
 ```bash
-$ npm install 
 $ npm start
 ```
 ### Build image
