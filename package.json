@@ -10,7 +10,7 @@
   },
   "main": "index.js",
   "scripts": {
-    "start": "babel-node src/index",
+    "start": "cross-env NODE_ENV=development babel-node src/index",
     "clean": "rm -rf dist/*",
     "prebuild": "npm run clean",
     "build": "babel -d dist/ src/",
@@ -37,6 +37,7 @@
     "@mmontes11/iot-client": "^0.0.1",
     "babel-plugin-transform-runtime": "^6.23.0",
     "bluebird": "^3.5.1",
+    "cross-env": "^5.1.3",
     "ds18b20": "^0.1.0",
     "node-dht-sensor": "0.0.32",
     "onoff": "^1.1.7",
