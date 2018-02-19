@@ -15,14 +15,18 @@ export class DHTHandler {
                 .each((inspection, index) => {
                     const sensor = config.sensors[index];
                     if (inspection.isFulfilled()) {
-                        const { temperatureValue, humidityValue } = inspection.value();
-                        const temperatureMeasurement = new TemperatureMeasurement(temperatureValue, sensor.temperatureUnits, sensor.measurementLocation);
-                        const humidityMeasurement = new HumidityMeasurement(humidityValue, sensor.humidityUnits, sensor.measurementLocation);
                         Log.logInfo(`Reading from ${sensor} ...`);
-                        Log.logInfo(`${temperatureMeasurement}`);
-                        Log.logInfo(`${humidityMeasurement}`);
-                        measurements.push(temperatureMeasurement);
-                        measurements.push(humidityMeasurement);
+                        const { temperatureValue, humidityValue } = inspection.value();
+                        if (!_.isUndefined(temperatureValue)) {
+                            const temperatureMeasurement = new TemperatureMeasurement(temperatureValue, sensor.temperatureUnits, sensor.measurementLocation);
+                            Log.logInfo(`${temperatureMeasurement}`);
+                            measurements.push(temperatureMeasurement);
+                        }
+                        if (!_.isUndefined(humidityValue)) {
+                            const humidityMeasurement = new HumidityMeasurement(humidityValue, sensor.humidityUnits, sensor.measurementLocation);
+                            Log.logInfo(`${humidityMeasurement}`);
+                            measurements.push(humidityMeasurement);
+                        }
                     } else {
                         Log.logError(`Error reading from ${sensor}: ${inspection.reason()}`)
                     }
