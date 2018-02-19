@@ -1,5 +1,5 @@
 import winston from '../lib/winston';
-import config from '../config/raspi';
+import config from '../config/index';
 
 export class Log {
     static logInfo(message) {
