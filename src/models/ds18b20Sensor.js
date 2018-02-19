@@ -1,5 +1,6 @@
 import Promise from 'bluebird';
 import ds18b20Lib from 'ds18b20';
+import _ from 'underscore';
 
 export class DS18B20Sensor {
     constructor(temperatureUnits, measurementLocation) {
