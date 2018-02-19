@@ -4,7 +4,7 @@ import config from '../config/raspi';
 import { MeasurementList, TemperatureMeasurement, HumidityMeasurement } from '../models/measurement';
 import { Log } from '../util/log';
 
-export class DHTHandler {
+export class SensorHandler {
     static async read() {
         try {
             const readFromSensorPromises = _.map(config.sensors, (sensor) => {
