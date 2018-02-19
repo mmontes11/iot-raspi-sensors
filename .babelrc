@@ -4,6 +4,7 @@
   ],
   "plugins": [
     [
+      "add-module-exports",
       "transform-runtime",
       {
         "polyfill": true,
