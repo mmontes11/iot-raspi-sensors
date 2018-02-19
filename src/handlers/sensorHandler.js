@@ -1,6 +1,6 @@
 import Promise from 'bluebird';
 import _ from 'underscore';
-import config from '../config/raspi';
+import config from '../config/index';
 import { MeasurementList, TemperatureMeasurement, HumidityMeasurement } from '../models/measurement';
 import { Log } from '../util/log';
 
