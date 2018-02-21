@@ -16,10 +16,6 @@ ADD dist/ ${WORKDIR}
 
 RUN chmod +x ${SCRIPTSDIR}/*.sh
 
-RUN ${SCRIPTSDIR}/generate_start_node.sh
-
-RUN chmod +x ${SCRIPTSDIR}/start_node.sh
-
 RUN ${SCRIPTSDIR}/install_bcm.sh
 
 RUN crontab ${SCRIPTSDIR}/crontab
