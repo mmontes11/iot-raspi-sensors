@@ -16,8 +16,8 @@ ADD dist/ ${WORKDIR}
 
 RUN chmod +x ${SCRIPTSDIR}/*.sh
 
-RUN ${SCRIPTSDIR}/install_bcm.sh
+RUN ${SCRIPTSDIR}/install-bcm.sh
 
 RUN crontab ${SCRIPTSDIR}/crontab
 
-CMD ${SCRIPTSDIR}/start_cron.sh
+CMD ${SCRIPTSDIR}/start.sh
