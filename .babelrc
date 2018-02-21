@@ -1,13 +1,11 @@
 {
   "presets": [
-    "env"
-  ],
-  "plugins": [
     [
-      "transform-runtime",
+      "env",
       {
-        "polyfill": true,
-        "regenerator": true
+        "targets": {
+          "node": "current"
+        }
       }
     ]
   ]

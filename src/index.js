@@ -1,9 +1,9 @@
 import { LEDHandler } from './handlers/ledHandler';
-import { DHTHandler } from './handlers/dhtHandler';
+import { SensorHandler } from './handlers/sensorHandler';
 import { Thing } from './models/thing';
 import { Log } from "./util/log"
 import IoTClient from "@mmontes11/iot-client";
-import config from './config/raspi';
+import config from './config/index';
 
 const iotClient = new IoTClient({
     host: config.serverHost,
@@ -13,7 +13,7 @@ const iotClient = new IoTClient({
 
 (async () => {
     try {
-        const measurementList = await DHTHandler.read();
+        const measurementList = await SensorHandler.read();
         const supportedObservationTypes = {
             measurement: measurementList.measurementTypes(),
             event: []

@@ -1,4 +1,4 @@
-import config from '../config/raspi';
+import config from '../config/index';
 
 export class LocationHandler {
     static getCurrentLocation() {

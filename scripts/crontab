@@ -1,1 +1,1 @@
-0,15,30,45  * * * * /usr/local/bin/node /usr/src/iot-raspi/index.js
+0,15,30,45 * * * * /usr/src/iot-raspi/scripts/start_node.sh

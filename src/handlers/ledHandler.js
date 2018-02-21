@@ -1,4 +1,4 @@
-import config from '../config/raspi';
+import config from '../config/index';
 import { Log } from "../util/log";
 
 export class LEDHandler {
