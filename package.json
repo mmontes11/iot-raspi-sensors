@@ -35,7 +35,6 @@
   "homepage": "https://github.com/mmontes11/iot-raspi#readme",
   "dependencies": {
     "@mmontes11/iot-client": "^0.0.1",
-    "babel-plugin-transform-runtime": "^6.23.0",
     "bluebird": "^3.5.1",
     "cross-env": "^5.1.3",
     "ds18b20": "^0.1.0",

@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+export PATH='/usr/local/bin';
+export WOKRDIR='/usr/src/iot-raspi';
 export NODE_ENV='production';
 export IOT_SERVER='http://localhost:8000';
 export IOT_USERNAME='admin';
@@ -14,4 +16,4 @@ export IOT_RASPI_LED_BLINK_TOTAL_IN_MS=5000;
 export IOT_RASPI_DHT_TYPE=11;
 export IOT_RASPI_DHT_GPIO=24;
 
-/usr/local/bin/node /usr/src/iot-raspi/index.js
+node ${WOKRDIR}/index.js
