@@ -1,19 +1,22 @@
 #!/usr/bin/env bash
 
-export PATH='/usr/local/bin';
-export WOKRDIR='/usr/src/iot-raspi';
-export NODE_ENV='production';
-export IOT_SERVER='http://localhost:8000';
-export IOT_USERNAME='admin';
-export IOT_PASSWORD='aA12345678&';
-export IOT_DEBUG='true';
-export IOT_RASPI_LONGITUDE=-8.40;
-export IOT_RASPI_LATITUDE=43.40;
-export IOT_RASPI_SUCCESS_LED_GPIO=20;
-export IOT_RASPI_ERROR_LED_GPIO=21;
-export IOT_RASPI_LED_BLINK_DURATION_IN_MS=100;
-export IOT_RASPI_LED_BLINK_TOTAL_IN_MS=5000;
-export IOT_RASPI_DHT_TYPE=11;
-export IOT_RASPI_DHT_GPIO=24;
+NODE_ENV=production;
+NODE_PATH=/usr/local/bin
+WORKDIR=/usr/src/iot-raspi
+SCRIPTSDIR=$WORKDIR/scripts
+SCRIPT=$SCRIPTSDIR/start_node_env.sh
 
-node ${WOKRDIR}/index.js
+newline="\n\n";
+shebang="#!/usr/bin/env bash";
+
+node_env="export NODE_ENV=$NODE_ENV;\n"
+iot_env=$(printenv | sed 's/^\(.*\)$/export \1/g' | grep -E '^export IOT' | awk '{ printf("%s;\\n", $0) }')
+env=$node_env$iot_env;
+
+run="$NODE_PATH/node $WORKDIR/index.js";
+
+start_node=$shebang$newline$env$newline$run;
+
+echo -e $start_node > $SCRIPT
+
+. $SCRIPT
