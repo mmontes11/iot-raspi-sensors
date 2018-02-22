@@ -25,8 +25,13 @@
     "javacript",
     "es6",
     "nodejs",
+    "iot",
     "raspberrypi",
-    "iot"
+    "raspi",
+    "sensors",
+    "dht11",
+    "dht22",
+    "ds18b20"
   ],
   "author": "Martín Montes <martin11lrx@gmail.com>",
   "bugs": {
