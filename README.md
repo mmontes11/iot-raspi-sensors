@@ -26,6 +26,10 @@ Configure your image:
 $ npm run dist
 $ docker build -t iot-raspi .
 ```
+
+### DockerHub
+Image available on [Docker Hub](https://hub.docker.com/r/mmontes11/iot-raspi-sensors/)
+
 ### Run image
 Configure env variables:
 * [.env](https://github.com/mmontes11/iot-raspi/blob/develop/.env)
