@@ -1,6 +1,6 @@
 export default {
     env: 'development',
-    serverHost: 'http://localhost:8000',
+    serverHost: 'http://192.168.0.100:9000',
     username: 'admin',
     password: 'aA12345678&',
     debug: true,

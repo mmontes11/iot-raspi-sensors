@@ -18,8 +18,8 @@ export default {
     username: config.username,
     password: config.password,
     location: {
-        latitude: config.latitude,
-        longitude: config.longitude
+        latitude: parseFloat(config.latitude),
+        longitude: parseFloat(config.longitude)
     },
     debug: config.debug,
     successLed,
