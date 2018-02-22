@@ -32,5 +32,5 @@ Configure env variables:
 
 
 ```bash
-$ docker run --name iot-raspi --privileged --restart always -h --env-file .env $(hostname) -d mmontes11/iot-raspi
+$ docker run --name iot-raspi --privileged --restart always --env-file .env -h $(hostname) -d mmontes11/iot-raspi-sensors
 ```
