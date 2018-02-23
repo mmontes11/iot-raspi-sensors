@@ -10,6 +10,10 @@ For storing measurement data, it consumes [IoT backend](https://github.com/mmont
 * [DHT22](https://www.adafruit.com/product/385)
 * [DS18B20](https://www.adafruit.com/product/381)
 
+### Wiring
+
+![wiring](https://raw.githubusercontent.com/mmontes11/iot-raspi-sensors/develop/wiring/wiring.png)
+
 ### Run in development
 
 ```bash
