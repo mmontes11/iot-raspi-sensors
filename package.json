@@ -24,15 +24,19 @@
     "js",
     "javacript",
     "es6",
+    "babel",
     "nodejs",
+    "npm",
     "docker",
-    "iot",
-    "raspberrypi",
+    "docker-compose",
+    "raspberry-pi",
     "raspi",
-    "sensors",
+    "sensor",
     "dht11",
     "dht22",
-    "ds18b20"
+    "ds18b20",
+    "iot",
+    "internet-of-things"
   ],
   "author": "Martín Montes <martin11lrx@gmail.com>",
   "bugs": {
