@@ -1,15 +1,8 @@
 import { LEDHandler } from './handlers/ledHandler';
 import { SensorHandler } from './handlers/sensorHandler';
 import { Thing } from './models/thing';
-import { Log } from "./util/log"
-import IoTClient from "@mmontes11/iot-client";
-import config from './config/index';
-
-const iotClient = new IoTClient({
-    host: config.serverHost,
-    username: config.username,
-    password: config.password
-});
+import { Log } from "./util/log";
+import iotClient from './lib/iotClient';
 
 (async () => {
     try {

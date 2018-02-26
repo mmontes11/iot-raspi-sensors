@@ -15,6 +15,8 @@ const sensors = [
 
 export default {
     serverHost: config.serverHost,
+    basicAuthUsername: config.basicAuthUsername,
+    basicAuthPassword: config.basicAuthPassword,
     username: config.username,
     password: config.password,
     location: {

@@ -1,6 +1,8 @@
 export default {
     env: 'production',
     serverHost: process.env.IOT_SERVER,
+    basicAuthUsername: process.env.IOT_BASIC_AUTH_USERNAME,
+    basicAuthPassword: process.env.IOT_BASIC_AUTH_PASSWORD,
     username: process.env.IOT_USERNAME,
     password: process.env.IOT_PASSWORD,
     debug: process.env.IOT_DEBUG,
