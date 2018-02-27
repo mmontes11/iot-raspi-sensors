@@ -4,20 +4,24 @@ RUN apt-get update
 
 RUN apt-get install -y cron rsyslog
 
-ENV WORKDIR /usr/src/iot-raspi
-
-ENV SCRIPTSDIR ${WORKDIR}/scripts
+ENV WORKDIR /usr/src/iot-raspi-sensors
 
 RUN mkdir ${WORKDIR}
 
 WORKDIR ${WORKDIR}
 
+ADD scripts/ ${WORKDIR}
+
+RUN chmod +x ${WORKDIR}/*.sh
+
+RUN ${WORKDIR}/install-bcm.sh
+
+COPY package.json ${WORKDIR}
+
+RUN npm install --production
+
 ADD dist/ ${WORKDIR}
 
-RUN chmod +x ${SCRIPTSDIR}/*.sh
+RUN crontab ${WORKDIR}/crontab
 
-RUN ${SCRIPTSDIR}/install-bcm.sh
-
-RUN crontab ${SCRIPTSDIR}/crontab
-
-CMD ${SCRIPTSDIR}/start.sh
+CMD ${WORKDIR}/start.sh
