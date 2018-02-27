@@ -28,8 +28,8 @@ Configure your image:
 * [crontab](https://github.com/mmontes11/iot-raspi-sensors/blob/develop/scripts/crontab)
 
 ```bash
-$ npm run dist
-$ docker build -t iot-raspi .
+$ npm run build
+$ docker build -t iot-raspi-sensors .
 ```
 
 ### DockerHub
