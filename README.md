@@ -23,7 +23,7 @@ $ npm start
 
 ### Build image
 
-Configure your image:
+Configure:
 
 * [crontab](https://github.com/mmontes11/iot-raspi-sensors/blob/develop/scripts/crontab)
 
@@ -36,7 +36,7 @@ $ docker build -t iot-raspi-sensors .
 Image available on [Docker Hub](https://hub.docker.com/r/mmontes11/iot-raspi-sensors/)
 
 ### Run image
-Configure env variables:
+Configure:
 * [.env](https://github.com/mmontes11/iot-raspi-sensors/blob/develop/.env)
 
 
