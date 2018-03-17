@@ -1,4 +1,5 @@
 # iot-raspi-sensors
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 IoT container for Raspberry Pi used to measure temperature and humidity periodically. 
@@ -22,7 +23,7 @@ $ npm start
 
 ### Build image
 
-Configure:
+Configuration:
 
 * [crontab](https://github.com/mmontes11/iot-raspi-sensors/blob/develop/scripts/crontab)
 
@@ -32,13 +33,16 @@ $ docker build -t iot-raspi-sensors .
 ```
 
 ### DockerHub
+
 Image available on [Docker Hub](https://hub.docker.com/r/mmontes11/iot-raspi-sensors/)
 
-### Run image
-Configure:
+### Run in production
+
+Configuration:
+
 * [.env](https://github.com/mmontes11/iot-raspi-sensors/blob/develop/.env)
 
 
 ```bash
-$ docker run --name iot-raspi-sensors --privileged --restart always --env-file .env -h $(hostname) -d mmontes11/iot-raspi-sensors
+$ ./run-production.sh
 ```
