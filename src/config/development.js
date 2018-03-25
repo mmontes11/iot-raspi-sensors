@@ -1,6 +1,6 @@
 export default {
     env: 'development',
-    serverHost: 'http://192.168.0.100:9000',
+    serverUrl: 'http://192.168.0.100:9000/api',
     basicAuthUsername: 'admin',
     basicAuthPassword: 'admin',
     username: 'admin',
@@ -8,6 +8,7 @@ export default {
     debug: true,
     longitude: -8.40,
     latitude: 43.40,
+    topic: 'home/raspi',
     successLedGPIO: 20,
     errorLedGPIO: 21,
     ledBlinkDurationInMs: 100,

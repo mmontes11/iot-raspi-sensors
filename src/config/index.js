@@ -14,7 +14,7 @@ const sensors = [
 ];
 
 export default {
-    serverHost: config.serverHost,
+    serverUrl: config.serverUrl,
     basicAuthUsername: config.basicAuthUsername,
     basicAuthPassword: config.basicAuthPassword,
     username: config.username,
@@ -23,6 +23,7 @@ export default {
         latitude: parseFloat(config.latitude),
         longitude: parseFloat(config.longitude)
     },
+    topic: config.topic,
     debug: config.debug,
     successLed,
     errorLed,
