@@ -31,7 +31,6 @@ npm-debug.log*
 .node-persist
 
 # bcm
-
 bcm*/
 bcm*.tar.gz
 bcm*.tar.gz.*
