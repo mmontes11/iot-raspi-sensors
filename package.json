@@ -12,8 +12,11 @@
   "scripts": {
     "preinstall": "./scripts/install-bcm.sh",
     "start": "cross-env NODE_ENV=development babel-node src/index",
+    "lint": "eslint --ignore-path .gitignore .",
+    "lint:fix": "npm run lint -- --fix",
+    "test": "echo \"Error: no test specified\" && exit 1",
     "clean": "rm -rf dist/*",
-    "prebuild": "npm run clean",
+    "prebuild": "npm run clean && npm run lint",
     "build": "babel -d dist/ src/"
   },
   "repository": {
@@ -57,6 +60,7 @@
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-preset-env": "^1.6.0",
-    "babel-register": "^6.26.0"
+    "babel-register": "^6.26.0",
+    "eslint-config-mmontes11-node": "^1.0.4"
   }
 }
