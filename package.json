@@ -46,21 +46,21 @@
   },
   "homepage": "https://github.com/mmontes11/iot-raspi-sensors#readme",
   "dependencies": {
-    "@mmontes11/iot-client": "^1.0.5",
+    "@mmontes11/iot-client": "^1.1.0",
     "bluebird": "^3.5.1",
     "cross-env": "^5.1.4",
     "ds18b20": "^0.1.0",
     "node-dht-sensor": "0.0.34",
     "onoff": "^1.2.0",
     "public-ip": "^2.3.5",
-    "underscore": "^1.8.3",
-    "winston": "^2.4.1"
+    "underscore": "^1.9.0",
+    "winston": "^2.4.2"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.0",
+    "babel-core": "^6.26.3",
     "babel-preset-env": "^1.6.0",
     "babel-register": "^6.26.0",
-    "eslint-config-mmontes11-node": "^1.0.4"
+    "eslint-config-mmontes11-node": "^1.0.5"
   }
 }
