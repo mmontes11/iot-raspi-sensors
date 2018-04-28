@@ -16,13 +16,19 @@ For storing measurement data, it consumes [IoT server](https://github.com/mmonte
 
 ![wiring](https://raw.githubusercontent.com/mmontes11/iot-raspi-sensors/develop/wiring/wiring.png)
 
-### Run in development
+### Development
 
 ```bash
 $ npm start
 ```
 
-### Build image
+### Lint
+
+```bash
+$ npm run lint
+```
+
+### Build Image
 
 Configuration:
 
@@ -37,7 +43,7 @@ $ docker build -t iot-raspi-sensors .
 
 Image available on [Docker Hub](https://hub.docker.com/r/mmontes11/iot-raspi-sensors/)
 
-### Run in production
+### Production
 
 Configuration:
 
