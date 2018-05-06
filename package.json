@@ -46,7 +46,7 @@
   },
   "homepage": "https://github.com/mmontes11/iot-raspi-sensors#readme",
   "dependencies": {
-    "@mmontes11/iot-client": "^1.1.0",
+    "@mmontes11/iot-client": "^1.1.1",
     "bluebird": "^3.5.1",
     "cross-env": "^5.1.4",
     "ds18b20": "^0.1.0",
