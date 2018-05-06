@@ -1,6 +1,6 @@
 {
   "name": "iot-raspi-sensors",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "IoT container for Raspberry Pi used to measure temperature and humidity periodically.",
   "license": "MIT",
   "private": false,
