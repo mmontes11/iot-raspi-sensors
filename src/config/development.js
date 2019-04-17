@@ -1,6 +1,6 @@
 export default {
   env: "development",
-  serverUrl: "http://192.168.0.100:9000/api",
+  serverUrl: "http://192.168.0.100:9000",
   basicAuthUsername: "admin",
   basicAuthPassword: "admin",
   username: "admin",

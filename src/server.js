@@ -2,12 +2,15 @@ import express from "express";
 import { Server } from "http";
 import SocketIO from "socket.io";
 import { SocketHandler } from "./handlers/socketHandler";
+import { checkSocketAuth } from "./helpers/auth";
 import config from "./config";
 import { Log } from "./util/log";
 
 const app = express();
 const server = new Server(app);
 const io = new SocketIO(server);
+
+io.use(checkSocketAuth);
 
 server.listen(config.nodePort, err => {
   if (!err) {
