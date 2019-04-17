@@ -1,4 +1,4 @@
-import IoTClient from "@mmontes11/iot-client";
+import { IoTClient } from "@mmontes11/iot-client";
 import config from "../config/index";
 
 const iotClient = new IoTClient({

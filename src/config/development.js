@@ -15,4 +15,6 @@ export default {
   ledBlinkTotalPeriodInMs: 5000,
   dhtType: 11,
   dhtGPIO: 24,
+  nodePort: 8080,
+  socketInterval: 5000,
 };

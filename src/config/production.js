@@ -15,4 +15,6 @@ export default {
   ledBlinkTotalPeriodInMs: process.env.IOT_RASPI_LED_BLINK_TOTAL_IN_MS,
   dhtType: process.env.IOT_RASPI_DHT_TYPE,
   dhtGPIO: process.env.IOT_RASPI_DHT_GPIO,
+  nodePort: process.env.IOT_RASPI_NODE_PORT,
+  socketInterval: process.env.IOT_RASPI_SOCKET_INTERVAL,
 };

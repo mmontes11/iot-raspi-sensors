@@ -17,17 +17,11 @@ const ds18b20OutdoorSensor = new DS18B20Sensor(MeasurementUnit.degrees, Measurem
 const sensors = [dhtIndoorSensor, ds18b20OutdoorSensor];
 
 export default {
-  serverUrl: config.serverUrl,
-  basicAuthUsername: config.basicAuthUsername,
-  basicAuthPassword: config.basicAuthPassword,
-  username: config.username,
-  password: config.password,
+  ...config,
   location: {
     latitude: parseFloat(config.latitude),
     longitude: parseFloat(config.longitude),
   },
-  topic: config.topic,
-  debug: config.debug,
   successLed,
   errorLed,
   sensors,
