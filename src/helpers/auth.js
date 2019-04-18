@@ -2,8 +2,8 @@ import iotClient from "../lib/iotClient";
 import { Log } from "../util/log";
 
 export const checkSocketAuth = async (socket, next) => {
-  if (socket.handshake.query && socket.handshake.query.token) {
-    const token = socket.handshake.query.token;
+  const { handshake: { query: { token } } } = socket;
+  if (token) {
     try {
       await iotClient.authService.checkAuth({ token });
       return next();

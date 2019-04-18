@@ -60,7 +60,10 @@ export class SocketHandler {
     this.intervalId = null;
   }
   close() {
+    Log.logInfo("Socket server stopped");
     this.clearInterval();
-    this.io.close();
+    Object.keys(this.io.sockets.sockets).forEach(s => {
+      this.io.sockets.sockets[s].disconnect(true);
+    });
   }
 }
