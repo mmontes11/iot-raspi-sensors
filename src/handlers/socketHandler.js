@@ -1,3 +1,4 @@
+import os from "os";
 import { Log } from "../util/log";
 import { SensorHandler } from "./sensorHandler";
 import config from "../config";
@@ -32,14 +33,21 @@ export class SocketHandler {
       },
     } = socket;
     const singleTypeData = dataObject.data[type];
-    let dataToEmit;
+    let dataToEmit = {
+      thing: os.hostname()
+    };
     if (type && singleTypeData) {
       dataToEmit = {
+        ...dataToEmit,
         ...singleTypeData,
+        type,
         phenomenonTime: dataObject.phenomenonTime,
       };
     } else {
-      dataToEmit = dataObject;
+      dataToEmit = {
+        ...dataToEmit,
+        ...dataObject
+      };
     }
     socket.emit("data", dataToEmit);
     Log.logInfo(`Emiting data: ${JSON.stringify(dataToEmit)}`);
@@ -71,7 +79,10 @@ export class SocketHandler {
           this.clearInterval();
         }
       });
-      socket.on("error", err => Log.logError(err));
+      socket.on("error", error => {
+        Log.logError(error);
+        socket.emit("thing_error", error);
+      });
     });
   }
   clearInterval() {
