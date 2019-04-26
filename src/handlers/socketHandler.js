@@ -25,9 +25,28 @@ export class SocketHandler {
       phenomenonTime: new Date().toISOString(),
     };
   }
+  static _emit(socket, dataObject) {
+    const {
+      handshake: {
+        query: { type },
+      },
+    } = socket;
+    const singleTypeData = dataObject.data[type];
+    let dataToEmit;
+    if (type && singleTypeData) {
+      dataToEmit = {
+        ...singleTypeData,
+        phenomenonTime: dataObject.phenomenonTime,
+      };
+    } else {
+      dataToEmit = dataObject;
+    }
+    socket.emit("data", dataToEmit);
+    Log.logInfo(`Emiting data: ${JSON.stringify(dataToEmit)}`);
+  }
   listen() {
     this.io.on("connection", socket => {
-      Log.logInfo("New connection");
+      Log.logInfo("Socket connection");
       this.numConnections += 1;
       Log.logInfo(`Number of connections: ${this.numConnections}`);
 
@@ -36,8 +55,7 @@ export class SocketHandler {
           try {
             const measurementList = await SensorHandler.read();
             const data = SocketHandler._getData(measurementList);
-            socket.emit("data", data);
-            Log.logInfo(`Emiting data: ${JSON.stringify(data)}`);
+            SocketHandler._emit(socket, data);
           } catch (err) {
             Log.logError(err);
           }
@@ -45,7 +63,7 @@ export class SocketHandler {
       }
 
       socket.on("disconnect", () => {
-        Log.logInfo("New disconnection");
+        Log.logInfo("Socket disconnection");
         this.numConnections -= 1;
         Log.logInfo(`Number of connections: ${this.numConnections}`);
 
@@ -53,6 +71,7 @@ export class SocketHandler {
           this.clearInterval();
         }
       });
+      socket.on("error", err => Log.logError(err));
     });
   }
   clearInterval() {

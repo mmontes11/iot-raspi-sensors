@@ -5,7 +5,11 @@ export const checkSocketAuth = async (socket, next) => {
   if (process.env.NODE_ENV !== "production") {
     return next();
   }
-  const { handshake: { query: { token } } } = socket;
+  const {
+    handshake: {
+      query: { token },
+    },
+  } = socket;
   if (token) {
     try {
       await iotClient.authService.checkAuth({ token });
