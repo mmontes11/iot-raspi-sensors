@@ -11,6 +11,7 @@ export default {
   topic: "home/raspi",
   successLedGPIO: 20,
   errorLedGPIO: 21,
+  ackLedGPIO: 16,
   ledBlinkDurationInMs: 100,
   ledBlinkTotalPeriodInMs: 5000,
   dhtType: 11,

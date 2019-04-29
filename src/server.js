@@ -20,9 +20,11 @@ server.listen(config.nodePort, err => {
 server.on("error", err => {
   Log.logError(`Error in NodeJS server on port ${config.socketServerPort}:`);
   Log.logError(err);
+  socketHandler.close();
 });
 server.on("close", () => {
   Log.logInfo(`Stopped NodeJS server on port ${config.nodePort}`);
+  socketHandler.close();
 });
 
 const socketHandler = new SocketHandler(io);

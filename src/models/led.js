@@ -20,4 +20,13 @@ export class LED {
       this.onoff.unexport();
     }, this.blinkTotalPeriodInMs);
   }
+  blinkAck() {
+    const interval = setInterval(() => {
+      this.onoff.writeSync(this.onoff.readSync() === 0 ? 1 : 0);
+    }, 50);
+    setTimeout(() => {
+      clearInterval(interval);
+      this.onoff.writeSync(0);
+    }, 500);
+  }
 }

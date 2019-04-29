@@ -6,6 +6,7 @@ import { DS18B20Sensor } from "../models/ds18b20Sensor";
 const config = require(`./${process.env.NODE_ENV}`).default;
 const successLed = new LED(config.successLedGPIO, config.ledBlinkDurationInMs, config.ledBlinkTotalPeriodInMs);
 const errorLed = new LED(config.errorLedGPIO, config.ledBlinkDurationInMs, config.ledBlinkTotalPeriodInMs);
+const ackLed = new LED(config.ackLedGPIO, config.ledBlinkDurationInMs, config.ledBlinkTotalPeriodInMs);
 const dhtIndoorSensor = new DHTSensor(
   config.dhtType,
   config.dhtGPIO,
@@ -24,5 +25,6 @@ export default {
   },
   successLed,
   errorLed,
+  ackLed,
   sensors,
 };

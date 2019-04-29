@@ -12,8 +12,8 @@ It also has a lightweight socket server for providing real time sensor data.
 
 * [DHT11](https://www.adafruit.com/product/386)
 * [DS18B20](https://www.adafruit.com/product/381)
-* 3 x 220Ω Resistor
-* 2 x LED
+* 4 x 220Ω Resistor
+* 3 x LED
 
 ### Wiring
 
@@ -61,7 +61,7 @@ Images available on [Docker Hub](https://hub.docker.com/):
 
 Configuration:
 
-* [.env](https://github.com/mmontes11/iot-raspi-sensors/blob/develop/.env)
+* Create a `.env` with this [variables](https://github.com/mmontes11/iot-raspi-sensors/blob/develop/src/config/production.js)
 
 
 ```bash

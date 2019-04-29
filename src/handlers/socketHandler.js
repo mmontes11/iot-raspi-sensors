@@ -1,6 +1,7 @@
 import os from "os";
 import { Log } from "../util/log";
 import { SensorHandler } from "./sensorHandler";
+import { LEDHandler } from "./ledHandler";
 import config from "../config";
 
 export class SocketHandler {
@@ -63,6 +64,7 @@ export class SocketHandler {
           try {
             const measurementList = await SensorHandler.read();
             const data = SocketHandler._getData(measurementList);
+            LEDHandler.blinkAck();
             SocketHandler._emit(socket, data);
           } catch (err) {
             Log.logError(err);
