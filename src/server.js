@@ -9,8 +9,9 @@ import { Log } from "./util/log";
 const app = express();
 const server = new Server(app);
 const io = new SocketIO(server);
-
 io.use(checkSocketAuth);
+const socketHandler = new SocketHandler(io);
+socketHandler.listen();
 
 server.listen(config.nodePort, err => {
   if (!err) {
@@ -26,10 +27,6 @@ server.on("close", () => {
   Log.logInfo(`Stopped NodeJS server on port ${config.nodePort}`);
   socketHandler.close();
 });
-
-const socketHandler = new SocketHandler(io);
-socketHandler.listen();
-
 process.on("SIGINT", () => {
   server.close();
   socketHandler.close();

@@ -9,7 +9,6 @@ export class SocketHandler {
     this.io = io;
     this.numConnections = 0;
     this.interval = config.socketInterval;
-    this.intervalId = null;
   }
   static _getData(measurementList) {
     let data = {};
@@ -35,7 +34,7 @@ export class SocketHandler {
     } = socket;
     const singleTypeData = dataObject.data[type];
     let dataToEmit = {
-      thing: os.hostname()
+      thing: os.hostname(),
     };
     if (type && singleTypeData) {
       dataToEmit = {
@@ -47,11 +46,16 @@ export class SocketHandler {
     } else {
       dataToEmit = {
         ...dataToEmit,
-        ...dataObject
+        ...dataObject,
       };
     }
     socket.emit("data", dataToEmit);
     Log.logInfo(`Emiting data: ${JSON.stringify(dataToEmit)}`);
+  }
+  static _clearInterval({ intervalId }) {
+    if (intervalId) {
+      clearInterval(intervalId);
+    }
   }
   listen() {
     this.io.on("connection", socket => {
@@ -59,43 +63,40 @@ export class SocketHandler {
       this.numConnections += 1;
       Log.logInfo(`Number of connections: ${this.numConnections}`);
 
-      if (this.intervalId === null) {
-        this.intervalId = setInterval(async () => {
-          try {
-            const measurementList = await SensorHandler.read();
-            const data = SocketHandler._getData(measurementList);
-            LEDHandler.blinkAck();
-            SocketHandler._emit(socket, data);
-          } catch (err) {
-            Log.logError(err);
-          }
-        }, this.interval);
-      }
+      socket.intervalId = setInterval(async () => {
+        try {
+          const measurementList = await SensorHandler.read();
+          const data = SocketHandler._getData(measurementList);
+          LEDHandler.blinkAck();
+          SocketHandler._emit(socket, data);
+        } catch (err) {
+          Log.logError(err);
+        }
+      }, this.interval);
 
       socket.on("disconnect", () => {
         Log.logInfo("Socket disconnection");
         this.numConnections -= 1;
         Log.logInfo(`Number of connections: ${this.numConnections}`);
-
-        if (this.numConnections === 0 && this.intervalId !== null) {
-          this.clearInterval();
+        SocketHandler._clearInterval(socket);
+        if (this.numConnections === 0) {
+          this.close();
         }
       });
+
       socket.on("error", error => {
         Log.logError(error);
         socket.emit("thing_error", error);
+        SocketHandler._clearInterval(socket);
       });
     });
   }
-  clearInterval() {
-    clearInterval(this.intervalId);
-    this.intervalId = null;
-  }
   close() {
-    Log.logInfo("Socket server stopped");
-    this.clearInterval();
+    Log.logInfo("Closing all socket connections...");
     Object.keys(this.io.sockets.sockets).forEach(s => {
-      this.io.sockets.sockets[s].disconnect(true);
+      const socket = this.io.sockets.sockets[s];
+      SocketHandler._clearInterval(socket);
+      socket.disconnect(true);
     });
   }
 }
