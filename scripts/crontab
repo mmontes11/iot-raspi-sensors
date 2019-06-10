@@ -1,1 +1,1 @@
-0,15,30,45 * * * * /usr/src/iot-raspi-sensors/start-node.sh
+0,15,30,45 * * * * /usr/src/iot-raspi-sensors/start-node.sh >> /var/log/iot-raspi-sensors.log 2>&1
