@@ -16,7 +16,7 @@ RUN chmod +x ${WORKDIR}/*.sh
 
 RUN ${WORKDIR}/install-bcm.sh
 
-COPY package.json ${WORKDIR}
+COPY package*.json ${WORKDIR}/
 
 RUN npm install --production
 
