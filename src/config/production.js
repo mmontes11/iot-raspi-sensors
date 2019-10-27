@@ -11,8 +11,11 @@ export default {
   topic: process.env.IOT_RASPI_TOPIC,
   successLedGPIO: process.env.IOT_RASPI_SUCCESS_LED_GPIO,
   errorLedGPIO: process.env.IOT_RASPI_ERROR_LED_GPIO,
+  ackLedGPIO: process.env.IOT_RASPI_ACK_LED_GPIO,
   ledBlinkDurationInMs: process.env.IOT_RASPI_LED_BLINK_DURATION_IN_MS,
   ledBlinkTotalPeriodInMs: process.env.IOT_RASPI_LED_BLINK_TOTAL_IN_MS,
   dhtType: process.env.IOT_RASPI_DHT_TYPE,
   dhtGPIO: process.env.IOT_RASPI_DHT_GPIO,
+  nodePort: process.env.IOT_RASPI_NODE_PORT,
+  socketInterval: process.env.IOT_RASPI_SOCKET_INTERVAL,
 };

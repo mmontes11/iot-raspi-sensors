@@ -1,6 +1,6 @@
 export default {
   env: "development",
-  serverUrl: "http://192.168.0.100:9000/api",
+  serverUrl: "http://192.168.0.100:9000",
   basicAuthUsername: "admin",
   basicAuthPassword: "admin",
   username: "admin",
@@ -11,8 +11,11 @@ export default {
   topic: "home/raspi",
   successLedGPIO: 20,
   errorLedGPIO: 21,
+  ackLedGPIO: 16,
   ledBlinkDurationInMs: 100,
   ledBlinkTotalPeriodInMs: 5000,
   dhtType: 11,
   dhtGPIO: 24,
+  nodePort: 8080,
+  socketInterval: 5000,
 };

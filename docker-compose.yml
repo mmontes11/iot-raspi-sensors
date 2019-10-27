@@ -1,0 +1,25 @@
+version: "3"
+services:
+  server:
+    build:
+      context: .
+      dockerfile: Dockerfile.server
+    container_name: iot-raspi-sensors-server
+    env_file: .env
+    hostname: ${HOSTNAME}
+    ports:
+      - "${IOT_RASPI_NODE_PORT}:${IOT_RASPI_NODE_PORT}"
+    privileged: true
+    restart: unless-stopped
+  sensors:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: iot-raspi-sensors
+    depends_on:
+      - server
+    env_file: .env
+    hostname: ${HOSTNAME}
+    privileged: true
+    restart: unless-stopped
+

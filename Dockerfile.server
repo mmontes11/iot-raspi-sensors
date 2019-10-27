@@ -1,10 +1,6 @@
 FROM node:8
 
-RUN apt-get update
-
-RUN apt-get install -y cron rsyslog
-
-ENV WORKDIR /usr/src/iot-raspi-sensors
+ENV WORKDIR /usr/src/iot-raspi-sensors-server
 
 RUN mkdir ${WORKDIR}
 
@@ -20,8 +16,6 @@ COPY package*.json ${WORKDIR}/
 
 RUN npm install --production
 
-ADD dist/ ${WORKDIR}
+ADD dist ${WORKDIR}
 
-RUN crontab ${WORKDIR}/crontab
-
-CMD ${WORKDIR}/start.sh
+CMD ["npm", "run", "production:server"]

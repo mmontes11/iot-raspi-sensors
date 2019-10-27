@@ -34,3 +34,7 @@ npm-debug.log*
 bcm*/
 bcm*.tar.gz
 bcm*.tar.gz.*
+
+# env
+*.env
+!.env.example

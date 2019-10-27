@@ -1,3 +1,6 @@
 {
-  "extends": ["mmontes11-node"]
+  "extends": ["mmontes11-node"],
+  "rules": {
+    "no-param-reassign": 0
+  }
 }

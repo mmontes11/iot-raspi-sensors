@@ -12,4 +12,8 @@ export class LEDHandler {
     Log.logInfo(`${led} blinking for error`);
     led.blink();
   }
+  static blinkAck() {
+    const led = config.ackLed;
+    led.blinkAck();
+  }
 }
