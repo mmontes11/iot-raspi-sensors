@@ -51,7 +51,7 @@
     "bluebird": "^3.5.1",
     "cross-env": "^5.1.4",
     "ds18b20": "^0.1.0",
-    "express": "^4.16.4",
+    "express": "^4.17.3",
     "node-dht-sensor": "0.0.34",
     "onoff": "^1.2.0",
     "public-ip": "^2.3.5",
