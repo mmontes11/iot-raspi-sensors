@@ -34,6 +34,9 @@ bcm*/
 bcm*.tar.gz
 bcm*.tar.gz.*
 
+# build
+build/*
+
 # env
 *.env
 !.env.example
