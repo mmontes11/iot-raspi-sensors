@@ -7,6 +7,7 @@ services:
     hostname: ${HOSTNAME}
     ports:
       - "${IOT_RASPI_NODE_PORT}:${IOT_RASPI_NODE_PORT}"
+    network_mode: host
     privileged: true
     restart: unless-stopped
   sensors:
@@ -16,6 +17,7 @@ services:
       - server
     env_file: .env
     hostname: ${HOSTNAME}
+    network_mode: host
     privileged: true
     restart: unless-stopped
 
