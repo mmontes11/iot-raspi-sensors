@@ -6,6 +6,7 @@ services:
     env_file: .env
     hostname: ${HOSTNAME}
     network_mode: host
+    dns: 100.100.100.100
     privileged: true
     restart: unless-stopped
   sensors:
@@ -14,6 +15,6 @@ services:
     env_file: .env
     hostname: ${HOSTNAME}
     network_mode: host
+    dns: 100.100.100.100
     privileged: true
     restart: unless-stopped
-
