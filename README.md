@@ -15,6 +15,11 @@ It also has a lightweight socket server for providing real time sensor data.
 * 4 x 220Ω Resistor
 * 3 x LED
 
+### Sensor configuration
+
+* [DHT11](https://www.raspberrypi-spy.co.uk/2013/03/raspberry-pi-1-wire-digital-thermometer-sensor/)
+* [DS18B20](https://www.raspberrypi-spy.co.uk/2017/09/dht11-temperature-and-humidity-sensor-raspberry-pi/)
+
 ### Wiring
 
 ![wiring](https://raw.githubusercontent.com/mmontes11/iot-raspi-sensors/develop/wiring/wiring.png)
