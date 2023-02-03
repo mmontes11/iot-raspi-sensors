@@ -17,8 +17,8 @@ It also has a lightweight socket server for providing real time sensor data.
 
 ### Sensor configuration
 
-* [DHT11](https://www.raspberrypi-spy.co.uk/2013/03/raspberry-pi-1-wire-digital-thermometer-sensor/)
-* [DS18B20](https://www.raspberrypi-spy.co.uk/2017/09/dht11-temperature-and-humidity-sensor-raspberry-pi/)
+* [DHT11](https://www.raspberrypi-spy.co.uk/2017/09/dht11-temperature-and-humidity-sensor-raspberry-pi)
+* [DS18B20](https://www.raspberrypi-spy.co.uk/2013/03/raspberry-pi-1-wire-digital-thermometer-sensor/)
 
 ### Wiring
 
