@@ -22,7 +22,7 @@ It also has a lightweight socket server for providing real time sensor data.
 
 ### Wiring
 
-![wiring](https://raw.githubusercontent.com/mmontes11/iot-raspi-sensors/develop/wiring/wiring.png)
+![wiring](https://raw.githubusercontent.com/mmontes11/iot-raspi-sensors/master/wiring/wiring.png)
 
 ### Development
 
