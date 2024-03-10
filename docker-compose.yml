@@ -11,7 +11,7 @@ services:
     restart: unless-stopped
   sensors:
     container_name: iot-raspi-sensors
-    image: ghcr.io/mmontes11/iot-raspi-sensors:v0.0.1
+    image: ghcr.io/mmontes11/iot-raspi-sensors:v0.0.2
     env_file: .env
     hostname: ${HOSTNAME}
     network_mode: host
